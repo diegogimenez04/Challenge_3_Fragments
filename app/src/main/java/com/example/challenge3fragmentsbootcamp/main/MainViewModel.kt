@@ -28,7 +28,6 @@ class MainViewModel: ViewModel() {
             try {
                 _status.value = ApiResponseStatus.LOADING
                 _krList.value = repository.fetchCryptos()
-                Log.d("CRYPTO_LIVE_DATA", _krList.value.toString())
                 _status.value = ApiResponseStatus.DONE
             } catch (e: UnknownHostException) {
                 _status.value = ApiResponseStatus.ERROR

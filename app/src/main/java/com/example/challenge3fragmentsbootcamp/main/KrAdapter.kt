@@ -1,7 +1,9 @@
 package com.example.challenge3fragmentsbootcamp.main
 
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import android.widget.ImageView
 import androidx.fragment.app.FragmentActivity
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
@@ -43,9 +45,20 @@ class KrAdapter: ListAdapter<Crypto, KrAdapter.EqViewHolder>(DiffCallBack) {
         fun bind(crypto: Crypto){
             binding.cryptoName.text = crypto.nombre
             binding.cryptoAbrv.text = crypto.abreviatura
-            /*val image = crypto.imagen.path
-            Glide.with(ApplicationProvider.getApplicationContext<FragmentActivity>())
-                .load(image).into(binding.cryptoImage)*/
+
+            val image = crypto.imagen.path
+            Glide.with(binding.root)
+                .load(image)
+                .into(binding.cryptoImage)
+
+            binding.root.setOnClickListener {
+                if (::onItemClickListener.isInitialized) {
+                    onItemClickListener(crypto)
+                } else {
+                    Log.d(TAG, "onItemClickListener not initialized")
+                }
+            }
+
             binding.executePendingBindings()
         }
     }

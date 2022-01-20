@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:id="@+id/details_fragment"
+    tools:context=".DetailsFragment"
+    android:orientation="vertical">
+
+    <ImageView
+        android:id="@+id/d_crypto_image"
+        android:layout_width="match_parent"
+        android:layout_height="120dp"
+        android:src="@color/black"
+        android:layout_margin="8dp"
+        android:contentDescription="@string/crypto_image" />
+
+    <TextView
+        android:id="@+id/d_crypto_abrv"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        tools:text="BNC"/>
+
+    <TextView
+        android:id="@+id/d_crypto_name"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        tools:text="Binance Coin"/>
+
+    <TextView
+        android:id="@+id/d_crypto_price"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        tools:text="USD$ 461.5"/>
+
+    <TextView
+        android:id="@+id/d_crypto_date"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        tools:text="Fecha de creación: 2017-07-01"
+        android:layout_marginTop="24dp"/>
+
+    <Button
+        android:id="@+id/return_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="Volver"
+        android:layout_gravity="center"/>
+
+</LinearLayout>

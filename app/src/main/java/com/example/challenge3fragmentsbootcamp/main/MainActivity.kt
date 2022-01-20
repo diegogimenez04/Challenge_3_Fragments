@@ -3,12 +3,17 @@ package com.example.challenge3fragmentsbootcamp.main
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
+import android.widget.Toast
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.challenge3fragmentsbootcamp.Crypto
+import com.example.challenge3fragmentsbootcamp.DetailsFragment
+import com.example.challenge3fragmentsbootcamp.R
 import com.example.challenge3fragmentsbootcamp.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
+    private lateinit var detailFragment: DetailsFragment
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         val binding = ActivityMainBinding.inflate(layoutInflater)
@@ -20,6 +25,13 @@ class MainActivity : AppCompatActivity() {
 
         val adapter = KrAdapter()
         binding.krRecycler.adapter = adapter
+
+        /*detailFragment =
+            supportFragmentManager.findFragmentById(R.id.details_fragment) as DetailsFragment
+*/
+        adapter.onItemClickListener = {
+//            detailFragment.setCryptoData(it)
+        }
 
         viewModel.krList.observe(this) {
             adapter.submitList(it)
