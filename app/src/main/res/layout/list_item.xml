@@ -14,13 +14,28 @@
             tools:src="@color/black" />
 
         <TextView
+            android:id="@+id/crypto_abrv"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            tools:text="BNC"/>
+
+        <TextView
             android:id="@+id/crypto_name"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            tools:text="Bitcoin"
-            android:gravity="center"
             android:layout_alignTop="@+id/crypto_image"
-            android:layout_alignBottom="@+id/crypto_image" />
+            android:layout_alignBottom="@+id/crypto_image"
+            android:gravity="center"
+            android:textSize="16sp"
+            tools:text="Bitcoin" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/toca_aqui_para_mas_informacion"
+            android:layout_alignBottom="@+id/crypto_image"
+            android:gravity="right"/>
 
     </RelativeLayout>
 </layout>

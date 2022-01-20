@@ -8,7 +8,7 @@ import kotlinx.coroutines.*
 import java.net.UnknownHostException
 
 private val TAG = MainViewModel::class.java.simpleName
-class MainViewModel {
+class MainViewModel: ViewModel() {
     private val repository = MainRepository()
 
     private val _status = MutableLiveData<ApiResponseStatus>()
@@ -16,10 +16,10 @@ class MainViewModel {
         get() = _status
 
     private var _krList = MutableLiveData<MutableList<Crypto>>()
-    val eqList: LiveData<MutableList<Crypto>>
+    val krList: LiveData<MutableList<Crypto>>
         get() = _krList
 
-    /*init {
+    init {
         reloadCryptos()
     }
 
@@ -28,11 +28,12 @@ class MainViewModel {
             try {
                 _status.value = ApiResponseStatus.LOADING
                 _krList.value = repository.fetchCryptos()
+                Log.d("CRYPTO_LIVE_DATA", _krList.value.toString())
                 _status.value = ApiResponseStatus.DONE
             } catch (e: UnknownHostException) {
                 _status.value = ApiResponseStatus.ERROR
                 Log.d(TAG, "No internet connection.", e)
             }
         }
-    }*/
+    }
 }

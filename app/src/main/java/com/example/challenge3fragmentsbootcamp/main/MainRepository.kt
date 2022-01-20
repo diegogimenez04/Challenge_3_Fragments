@@ -1,5 +1,6 @@
 package com.example.challenge3fragmentsbootcamp.main
 
+import android.util.Log
 import com.example.challenge3fragmentsbootcamp.Crypto
 import com.example.challenge3fragmentsbootcamp.api.KrJsonResponse
 import com.example.challenge3fragmentsbootcamp.api.service
@@ -7,19 +8,21 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
 
 class MainRepository {
-    suspend fun fetchCryptos(sortByMagnitude: Boolean): MutableList<Crypto> {
+    suspend fun fetchCryptos(): MutableList<Crypto> {
         return withContext(Dispatchers.IO) {
             val krJsonResponse = service.getLastHourCryptos()
             val krList = parseCryptoResult(krJsonResponse)
+
+            Log.d("CRYPTO_LIST", krList.toString())
 
             krList
         }
     }
 
-    private fun parseCryptoResult(eqJsonResponse: KrJsonResponse): MutableList<Crypto> {
+    private fun parseCryptoResult(krJsonResponse: KrJsonResponse): MutableList<Crypto> {
 
         val krList = mutableListOf<Crypto>()
-        val entriesList = eqJsonResponse.entries
+        val entriesList = krJsonResponse.entries
 
         for (access in entriesList){
             val name = access.nombre
