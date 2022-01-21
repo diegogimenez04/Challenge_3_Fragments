@@ -4,4 +4,6 @@
     <string name="crypto_image" translatable="false">Crypto image</string>
     <string name="cargando" translatable="false">Cargando...</string>
     <string name="toca_aqui_para_mas_informacion" translatable="false">Toca aqui para mas informacion</string>
+
+    <string name="usd_461_5" translatable="false">USD$ %f</string>
 </resources>

@@ -1,4 +1,4 @@
-package com.example.challenge3fragmentsbootcamp.main
+package com.example.challenge3fragmentsbootcamp
 
 import android.util.Log
 import android.view.LayoutInflater

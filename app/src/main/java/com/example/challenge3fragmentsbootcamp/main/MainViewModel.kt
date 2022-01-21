@@ -23,7 +23,7 @@ class MainViewModel: ViewModel() {
         reloadCryptos()
     }
 
-    private fun reloadCryptos() {
+    fun reloadCryptos() {
         viewModelScope.launch {
             try {
                 _status.value = ApiResponseStatus.LOADING

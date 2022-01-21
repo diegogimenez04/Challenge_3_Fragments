@@ -1,41 +1,63 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
 
-    <RelativeLayout
+    <data>
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:padding="16dp">
+        android:layout_height="wrap_content"
+        android:background="?attr/selectableItemBackground"
+        android:layout_margin="16dp">
 
         <ImageView
             android:id="@+id/crypto_image"
-            android:layout_width="120dp"
+            android:layout_width="100dp"
             android:layout_height="80dp"
-            tools:src="@color/black" />
-
-        <TextView
-            android:id="@+id/crypto_abrv"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:gravity="center"
-            tools:text="BNC"/>
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/ic_launcher_background"
+            tools:ignore="MissingConstraints" />
 
         <TextView
             android:id="@+id/crypto_name"
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignTop="@+id/crypto_image"
-            android:layout_alignBottom="@+id/crypto_image"
-            android:gravity="center"
-            android:textSize="16sp"
+            android:layout_alignParentRight="true"
+            android:padding="8dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:ignore="MissingConstraints"
+            tools:text="BNB" />
+
+        <TextView
+            android:id="@+id/crypto_abrv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="29dp"
+            android:textColor="@color/black"
+            android:textSize="20dp"
+            app:layout_constraintStart_toEndOf="@+id/crypto_image"
+            tools:ignore="MissingConstraints"
+            tools:layout_editor_absoluteY="30dp"
             tools:text="Bitcoin" />
 
         <TextView
-            android:layout_width="match_parent"
+            android:id="@+id/textView3"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/toca_aqui_para_mas_informacion"
-            android:layout_alignBottom="@+id/crypto_image"
-            android:gravity="right"/>
-
-    </RelativeLayout>
+            android:layout_marginStart="30dp"
+            android:layout_marginTop="7dp"
+            android:text="Click para más información"
+            android:textSize="12sp"
+            android:layout_marginBottom="16dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/crypto_image"
+            app:layout_constraintTop_toBottomOf="@+id/crypto_abrv"
+            tools:ignore="MissingConstraints" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>
