@@ -6,6 +6,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.TextView
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -52,15 +53,16 @@ class ListFragment : Fragment() {
 
         viewModel.krList.observe(requireActivity()) {
             adapter.submitList(it)
+            handleEmptyView(it, rootView)
         }
 
         return rootView
     }
 
-    /*private fun handleEmptyView(it: MutableList<Crypto>, binding: ActivityMainBinding) {
-        *//*if (it.isEmpty())
-            binding.krEmptyView.visibility = View.VISIBLE
+    private fun handleEmptyView(it: MutableList<Crypto>, view: View) {
+        if (it.isEmpty())
+            view.findViewById<TextView>(R.id.empty_view).visibility = View.VISIBLE
         else
-            binding.krEmptyView.visibility = View.GONE*//*
-    }*/
+            view.findViewById<TextView>(R.id.empty_view).visibility = View.GONE
+    }
 }

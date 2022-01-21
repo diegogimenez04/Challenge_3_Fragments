@@ -9,19 +9,25 @@
         android:orientation="vertical"
         tools:context=".DetailedActivity">
 
-        <ImageView
-            android:id="@+id/d_crypto_image"
+        <com.google.android.material.card.MaterialCardView
             android:layout_width="match_parent"
-            android:layout_height="230dp"
-            android:layout_margin="8dp"
-            android:scaleType="centerCrop"
-            android:contentDescription="@string/crypto_image"
-            android:src="@color/black" />
+            android:layout_height="wrap_content"
+            app:cardElevation="16dp">
+            <ImageView
+                android:id="@+id/d_crypto_image"
+                android:layout_width="match_parent"
+                android:layout_height="230dp"
+                android:layout_margin="8dp"
+                android:scaleType="centerCrop"
+                android:contentDescription="@string/crypto_image"
+                android:src="@color/black" />
+        </com.google.android.material.card.MaterialCardView>
 
         <TextView
             android:id="@+id/d_crypto_abrv"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
             android:textSize="20dp"
             android:paddingStart="28dp"
             tools:text="BNB"/>

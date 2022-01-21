@@ -15,6 +15,7 @@ import com.bumptech.glide.load.DataSource
 import com.bumptech.glide.load.engine.GlideException
 import com.bumptech.glide.request.RequestListener
 import com.bumptech.glide.request.target.Target
+import androidx.appcompat.app.AppCompatActivity
 
 class DetailsFragment : Fragment() {
 
@@ -33,7 +34,15 @@ class DetailsFragment : Fragment() {
         // Inflate the layout for this fragment
         val rootView = inflater.inflate(R.layout.fragment_details, container, false)
 
+        val returnButton = rootView.findViewById<Button>(R.id.return_button)
+        returnButton.setOnClickListener {
+            (activity as AppCompatActivity?)!!.supportActionBar!!.title = "Criptomonedas"
+            requireActivity().onBackPressed()
+        }
+
         val crypto = args.crypto
+
+        (activity as AppCompatActivity?)!!.supportActionBar!!.title = crypto.nombre
 
         imageView = rootView.findViewById(R.id.d_crypto_image)
         name = rootView.findViewById(R.id.d_crypto_name)
@@ -80,7 +89,7 @@ class DetailsFragment : Fragment() {
         name.text = crypto.nombre
         abrv.text = crypto.abreviatura
         price.text = getString(R.string.usd_461_5, crypto.precio)
-        date.text = crypto.fecha_creacion
+        date.text = getString(R.string.date, crypto.fecha_creacion)
 
     }
 }
