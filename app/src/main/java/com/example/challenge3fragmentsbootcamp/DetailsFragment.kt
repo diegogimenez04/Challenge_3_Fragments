@@ -6,7 +6,6 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Button
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.navigation.fragment.navArgs
@@ -15,7 +14,7 @@ import com.bumptech.glide.load.DataSource
 import com.bumptech.glide.load.engine.GlideException
 import com.bumptech.glide.request.RequestListener
 import com.bumptech.glide.request.target.Target
-import androidx.appcompat.app.AppCompatActivity
+import com.google.android.material.card.MaterialCardView
 
 class DetailsFragment : Fragment() {
 
@@ -31,18 +30,16 @@ class DetailsFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        // Inflate the layout for this fragment
         val rootView = inflater.inflate(R.layout.fragment_details, container, false)
 
-        val returnButton = rootView.findViewById<Button>(R.id.return_button)
+        val returnButton = rootView.findViewById<MaterialCardView>(R.id.return_button)
         returnButton.setOnClickListener {
-            (activity as AppCompatActivity?)!!.supportActionBar!!.title = "Criptomonedas"
+            requireActivity().findViewById<ImageView>(R.id.iv_go_back).visibility = View.GONE
+            requireActivity().findViewById<TextView>(R.id.toolbar_title).text = getString(R.string.criptomonedas)
             requireActivity().onBackPressed()
         }
 
         val crypto = args.crypto
-
-        (activity as AppCompatActivity?)!!.supportActionBar!!.title = crypto.nombre
 
         imageView = rootView.findViewById(R.id.d_crypto_image)
         name = rootView.findViewById(R.id.d_crypto_name)
@@ -56,7 +53,6 @@ class DetailsFragment : Fragment() {
     }
 
     fun setCryptoData(crypto: Crypto){
-        /*loadingWheel.visibility = View.VISIBLE*/
         Glide.with(this)
             .load(crypto.imagen.path)
             .listener(object: RequestListener<Drawable> {
@@ -66,7 +62,6 @@ class DetailsFragment : Fragment() {
                     target: Target<Drawable>?,
                     isFirstResource: Boolean
                 ): Boolean {
-//                    loadingWheel.visibility = View.GONE
                     return false
                 }
 
@@ -77,13 +72,11 @@ class DetailsFragment : Fragment() {
                     dataSource: DataSource?,
                     isFirstResource: Boolean
                 ): Boolean {
-//                    loadingWheel.visibility = View.GONE
-//                    imageView.setImageResource(R.drawable.ic_baseline_browser_not_supported_24)
                     return false
                 }
 
             })
-//            .error(R.drawable.ic_baseline_browser_not_supported_24)
+            .error(R.drawable.ic_baseline_image_not_supported_24)
             .into(imageView)
 
         name.text = crypto.nombre

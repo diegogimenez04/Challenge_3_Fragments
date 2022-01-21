@@ -60,9 +60,10 @@ class ListFragment : Fragment() {
     }
 
     private fun handleEmptyView(it: MutableList<Crypto>, view: View) {
-        if (it.isEmpty())
+        view.findViewById<TextView>(R.id.empty_view).visibility = if (it.isEmpty()) View.VISIBLE else View.GONE
+        /*if (it.isEmpty())
             view.findViewById<TextView>(R.id.empty_view).visibility = View.VISIBLE
         else
-            view.findViewById<TextView>(R.id.empty_view).visibility = View.GONE
+            view.findViewById<TextView>(R.id.empty_view).visibility = View.GONE*/
     }
 }

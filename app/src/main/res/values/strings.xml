@@ -8,4 +8,6 @@
     <string name="date" translatable="false">Fecha de creacion: %s</string>
     <string name="loading" translatable="false">Loading...</string>
     <string name="click_para_m_s_informaci_n">Click para más información</string>
+    <string name="criptomonedas" translatable="false">Criptomonedas</string>
+    <string name="volver">Volver</string>
 </resources>
